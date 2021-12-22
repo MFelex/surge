@@ -1,0 +1,16 @@
+django==3.2
+djangorestframework
+djangorestframework-simplejwt
+django-redis
+redis
+python-dotenv
+psycopg2
+loguru
+requests
+celery
+
+pytest==6.2.3
+pytest-cov==2.11.1
+pytest-django==4.2.0
+pytest-mock==3.5.1
+model-bakery==1.2.1
