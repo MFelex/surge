@@ -7,13 +7,14 @@ RUN usermod -u 1000 www-data && groupmod -g 1000 www-data && \
         apt-get update
 RUN DEBIAN_FRONTEND="noninteractive" TZ="Etc/GMT" apt-get -y install tzdata
 RUN apt-get install -y python3 python3-pip python3-dev uwsgi uwsgi-plugin-python3 \
-        ca-certificates vim curl libffi-dev libssl-dev  && mkdir /var/www && rm -rf /var/cache/apt/*
+        ca-certificates build-essential vim curl libffi-dev libssl-dev libxml2-dev \
+        libxslt1-dev  && mkdir /var/www && rm -rf /var/cache/apt/*
 
 # Copy requirenments
 COPY ["entrypoint.sh", "requirements.txt", "/"]
 
 # Install python packages
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 RUN touch settings.env
 # Copy project files

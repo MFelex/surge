@@ -10,11 +10,10 @@ services:
       env_file:
         - ./settings.env
       ports:
-        - "8000:8000"
-      command: ["uwsgi", "--callable", "application", "--wsgi-file", "./user/wsgi.py", "--processes=4", "--protocol=http", "-b 32768" ,  "--wsgi-disable-file-wrapper", "--socket-timeout=120"]
+        - "8003:8000"
+      command: ["uwsgi", "--callable", "application", "--wsgi-file", "./surge/wsgi.py", "--processes=2", "--protocol=http", "-b 32768" ,  "--wsgi-disable-file-wrapper", "--socket-timeout=120"]
       networks:
         - surge-network
-
 
    surge-cronjob:
      build:
@@ -25,27 +24,40 @@ services:
      env_file:
        - ./settings.env
      ports:
-       - "8000:8000"
+       - "8002:8000"
      command: ["worker" , "-A" , "surge" , "-B" , "--loglevel=info"]
      networks:
        - surge-network
 
-
    postgres:
      image: "postgis/postgis:13-master"
+     container_name: postgress
      env_file:
-       - .env
+       - ./postgis.env
      ports:
-       - "5432:5432"
+       - "5434:5432"
      volumes:
-       - db-data:/var/lib/postgresql/data/
+       - postgres-data:/var/lib/postgresql/data/
      networks:
        - surge-network
 
+   redis:
+    image: "redis:alpine"
+    container_name: redis
+    command: redis-server
+    ports:
+       - "6381:6379"
+    volumes:
+       - redis-data:/data
+    environment:
+       - REDIS_REPLICATION_MODE=master
+    networks:
+       - surge-network
 
 networks:
-  sruge-network:
+  surge-network:
     driver: bridge
 
 volumes:
-  db-data:
+  postgres-data:
+  redis-data:
