@@ -4,7 +4,6 @@ djangorestframework-simplejwt
 django-redis
 redis
 python-dotenv
-psycopg2
 loguru
 requests
 celery
