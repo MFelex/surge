@@ -62,7 +62,7 @@ class ThresholdCoefficientView(APIView):
         return Response(serializer.validated_data, status=HTTP_201_CREATED)
 
     def get(self, request):
-        serializer = self.serializer(self.query)
+        serializer = self.serializer(self.query, many=True)
         return Response(serializer.data)
 
     @staticmethod

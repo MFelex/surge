@@ -120,5 +120,5 @@ def find_coefficient(request_count: int) -> float:
     ).order_by(
         'request_count'
     ).first()
-    coefficient = threshold.coefficient
+    coefficient = threshold.coefficient if threshold else 1
     return coefficient
