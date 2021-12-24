@@ -60,7 +60,10 @@ services:
          - surge-network
 
    ogr2ogr:
-      image: "osgeo/gdal:ubuntu-small-3.4.0"
+      image: ogr2ogr
+      build:
+         dockerfile: ./Dockerfile
+         context: ./postgis-data
       container_name: ogr2ogr
       env_file:
          - ./postgis.env
