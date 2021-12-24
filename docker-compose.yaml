@@ -63,7 +63,7 @@ services:
       image: "osgeo/gdal:ubuntu-small-3.4.0"
       container_name: ogr2ogr
       env_file:
-         - postgis-data/postgis.env
+         - ./postgis.env
       depends_on:
          - postgres
       command:
