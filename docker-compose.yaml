@@ -66,8 +66,7 @@ services:
          - ./postgis.env
       depends_on:
          - postgres
-      command:
-         - bash -c "chmod +x ./postgis-data/import-script.sh && ./postgis-data/import-script.sh"
+      command: bash -c "chmod +x /postgis-data/import-script.sh && /postgis-data/import-script.sh"
       volumes:
          - ./postgis-data:/postgis-data
       networks:
