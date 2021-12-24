@@ -51,7 +51,7 @@ def find_district_by_api(lat: float, lon: float) -> int:
 
 
 def find_district_by_database(lat: float, lon: float) -> int:
-    conn = connections['postgis']
+    conn = connections['default']
     cur = conn.cursor()
     cur.execute(f"""
         SELECT gid

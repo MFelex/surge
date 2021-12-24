@@ -14,7 +14,7 @@ RUN apt-get install -y python3 python3-pip python3-dev uwsgi uwsgi-plugin-python
 COPY ["entrypoint.sh", "requirements.txt", "/"]
 
 # Install python packages
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 RUN touch settings.env
 # Copy project files

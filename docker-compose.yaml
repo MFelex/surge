@@ -54,6 +54,20 @@ services:
       networks:
          - surge-network
 
+   ogr2ogr:
+      image: "osgeo/gdal:ubuntu-small-3.4.0"
+      container_name: ogr2ogr
+      env_file:
+         - postgis-data/postgis.env
+      depends_on:
+         - postgres
+      command:
+         - bash -c "./postgis-data/import-script.sh"
+      volumes:
+         - ./postgis-data:/postgis-data
+      networks:
+         - surge-network
+
 networks:
   surge-network:
     driver: bridge

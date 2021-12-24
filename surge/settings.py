@@ -88,14 +88,6 @@ DATABASES = {
         'USER': environ.get('DB_SQL_USER'),
         'PASSWORD': environ.get('DB_SQL_PASS'),
     },
-    'postgis': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'HOST': environ.get('DB_SQL_HOST'),
-        'PORT': environ.get('DB_SQL_PORT'),
-        'NAME': environ.get('DB_POSTGIS_SQL_NAME'),
-        'USER': environ.get('DB_SQL_USER'),
-        'PASSWORD': environ.get('DB_SQL_PASS'),
-    }
 }
 
 
