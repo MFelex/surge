@@ -10,6 +10,8 @@ services:
       restart: always
       env_file:
         - ./settings.env
+      depends_on:
+        - postgres
       ports:
         - "8080:8000"
       command: ["uwsgi", "--callable", "application", "--wsgi-file", "./surge/wsgi.py", "--processes=2", "--protocol=http", "-b 32768" ,  "--wsgi-disable-file-wrapper", "--socket-timeout=120"]
@@ -25,6 +27,9 @@ services:
       restart: always
       env_file:
         - ./settings.env
+      depends_on:
+        - redis
+        - postgres
       command: ["worker" , "-A" , "surge" , "worker" , "-B" , "--loglevel=debug"]
       networks:
         - surge-network
@@ -62,7 +67,7 @@ services:
       depends_on:
          - postgres
       command:
-         - bash -c "./postgis-data/import-script.sh"
+         - bash -c "chmod +x ./postgis-data/import-script.sh & ./postgis-data/import-script.sh"
       volumes:
          - ./postgis-data:/postgis-data
       networks:
