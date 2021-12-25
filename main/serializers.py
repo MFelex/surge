@@ -49,7 +49,7 @@ class SurgeDurationSerializer(serializers.Serializer):
 
     @staticmethod
     def validate_duration(duration):
-        if 1440 < duration < 1:
+        if 1440 < duration or duration < 1:
             raise ValidationError('Enter a valid duration between 1 to 1440')
         return duration
 
