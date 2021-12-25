@@ -1,9 +1,9 @@
 from celery import shared_task
 from django.utils.timezone import datetime, timedelta
 from django.conf import settings
-from utils.functions import redis_request_key_maker
 from main.models import RequestDistrict
 from utils.connectors import redis_connector
+from utils.functions import redis_request_key_maker
 
 
 @shared_task(name='cron_job')

@@ -1,9 +1,11 @@
 import re
 import requests
+
 from rest_framework.exceptions import NotFound
 from django.conf import settings
-from django.utils.timezone import datetime, timedelta
 from django.db import connections
+from django.utils.timezone import datetime, timedelta
+
 from utils.connectors import redis_connector
 from main.models import RequestDistrict, Threshold
 
