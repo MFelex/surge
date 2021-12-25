@@ -103,6 +103,7 @@ celerybeat.pid
 
 # Environments
 settings.env
+postgis.env
 .env
 .venv
 env/
