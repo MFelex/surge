@@ -9,6 +9,10 @@ loguru
 requests
 celery
 psycopg2-binary
+
+pylint
+pylint-django
+pytest-pylint
 pytest==6.2.3
 pytest-cov==2.11.1
 pytest-django==4.2.0

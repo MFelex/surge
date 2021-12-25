@@ -1,7 +1,6 @@
 from pathlib import Path
 from os import environ
 from dotenv import load_dotenv
-from celery.schedules import crontab
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
