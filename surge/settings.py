@@ -37,6 +37,14 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
 ]
 
+INSTALLED_APPS += [
+    'health_check',  # required
+    'health_check.db',  # stock Django health checkers
+    'health_check.contrib.migrations',
+    'health_check.contrib.redis',
+]
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -97,6 +105,8 @@ REDIS_HOST = environ.get('REDIS_HOST')
 REDIS_PORT = environ.get('REDIS_PORT')
 REDIS_USER = environ.get('REDIS_USER')
 REDIS_PASS = environ.get('REDIS_PASS')
+REDIS_URL = f"redis://{environ.get('REDIS_FULL_HOST')}"
+
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
@@ -119,7 +129,6 @@ CELERY_BROKER_USER = environ.get('CELERY_BROKER_USER')
 CELERY_BROKER_PASS = environ.get('CELERY_BROKER_PASS')
 CELERY_TASK_DEFAULT_QUEUE = 'surge'
 CELERY_BROKER_URL = f'redis://{CELERY_BROKER_HOST}:{CELERY_BROKER_PORT}'
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

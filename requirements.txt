@@ -1,6 +1,7 @@
 django==3.2
 djangorestframework
 djangorestframework-simplejwt
+django-health-check
 django-redis
 redis
 python-dotenv

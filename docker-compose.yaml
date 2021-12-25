@@ -11,6 +11,7 @@ services:
       env_file:
         - ./settings.env
       depends_on:
+        - redis
         - postgres
       ports:
         - "8080:8000"
