@@ -56,3 +56,15 @@ curl --location --request POST 'http://localhost:8080/duration' \
     "duration": 10
 }'
 ```
+
+#### Threshold/Coefficients
+##### Thresholds/Coefficients is configurable, so the registered user be able to modify them anytime. ```request_count``` is the number of requests that occur during time-window(duration) and ```coefficient``` is the coefficient of that requests.
+```console
+curl --location --request POST 'http://localhost:8080/threshold' \
+--header 'Authorization: Bearer 'ACCESS TOKEN' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "request_count": 1000,
+    "coefficient": 1.05
+}'
+```
