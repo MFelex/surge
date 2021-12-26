@@ -68,3 +68,9 @@ curl --location --request POST 'http://localhost:8080/threshold' \
     "coefficient": 1.05
 }'
 ```
+
+#### Surge
+##### The main service that return Tehran district ```coefficient``` based on ```latitude``` and ```longitude``` 
+```console
+curl --location --request GET 'http://localhost:8080/surge?lat=51.4096035&lon=35.7578398'
+```
