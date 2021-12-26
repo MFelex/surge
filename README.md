@@ -21,3 +21,27 @@ $ mv postgis.example.env postigs.env
 $ docker-compose up -d
 ```
 Now you can access Surge API at ```http://localhost:8080/``` from your host system.
+
+## How to use the application
+#### Register User
+##### User has to enter ```Username```, ```email``` and ```password``` fields to register
+```console
+curl --location --request POST 'http://localhost:8080/user/register' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "username": "John",
+    "email": "JohnDou@gmail.com",
+    "password": "NewPass12"
+}'
+```
+
+#### Login User
+##### User can login using ```username``` and ```password```. The reponse of this API is includes JWT ```access``` and ```refresh```.
+```console
+curl --location --request POST 'http://localhost:8080/user/login' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "username": "John",
+    "password": "NewPass12"
+}'
+```
