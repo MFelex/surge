@@ -102,6 +102,8 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+settings.env
+postgis.env
 .env
 .venv
 env/
@@ -127,3 +129,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Pycharm stuff
+.idea/
+
+# macOS stuff
+.DS_Store
+
+# Certificates
+*.pem
+
