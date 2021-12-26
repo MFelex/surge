@@ -45,3 +45,14 @@ curl --location --request POST 'http://localhost:8080/user/login' \
     "password": "NewPass12"
 }'
 ```
+
+#### Surge Duration
+##### Demand is a time-dependent concept, so the registered user can set dynamic time-window (```duration```) in minutes.
+```console
+curl --location --request POST 'http://localhost:8080/duration' \
+--header 'Authorization: Bearer 'ACCESS TOKEN' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "duration": 10
+}'
+```
