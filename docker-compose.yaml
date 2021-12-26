@@ -82,6 +82,20 @@ services:
       networks:
          - surge-network
 
+   surge-migration:
+      image: surge
+      build:
+        dockerfile: ./Dockerfile
+        context: .
+      container_name: surge-migration
+      env_file:
+        - ./settings.env
+      depends_on:
+         postgres:
+           condition: service_healthy
+      command: ["migrate"]
+      networks:
+        - surge-network
 networks:
   surge-network:
     driver: bridge
