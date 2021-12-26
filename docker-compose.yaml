@@ -76,7 +76,7 @@ services:
       depends_on:
          postgres:
            condition: service_healthy
-      command: bash -c "chmod +x /postgis-data/import-script.sh && /postgis-data/import-script.sh"
+      command: bash -c "sleep 4; chmod +x /postgis-data/import-script.sh && /postgis-data/import-script.sh"
       volumes:
          - ./postgis-data:/postgis-data
       networks:
@@ -92,7 +92,7 @@ services:
         - ./settings.env
       depends_on:
          postgres:
-           condition: service_healthy
+            condition: service_healthy
       command: ["migrate"]
       networks:
         - surge-network
