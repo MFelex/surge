@@ -1,5 +1,5 @@
 ![pylint Score](https://mperlet.github.io/pybadge/badges/9.svg)
-![Pytest Coverage](https://svgshare.com/i/d62.svg)
+![Pytest Coverage](https://svgshare.com/i/d6Z.svg)
 # surge
 Determine the price coefficient based on the demand rate in Tehran`s districts
 
