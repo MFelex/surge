@@ -84,7 +84,7 @@ def get_redis_surge_duration() -> int:
     key = redis_surge_duration_key_maker()
     with redis_connector() as red:
         duration = red.get(key)
-    duration = int(duration) if duration else 0
+    duration = int(duration) if duration else settings.DEFAULT_DURATION
     return duration
 
 

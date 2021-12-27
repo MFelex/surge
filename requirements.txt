@@ -18,3 +18,5 @@ pytest-cov==2.11.1
 pytest-django==4.2.0
 pytest-mock==3.5.1
 model-bakery==1.2.1
+requests-mock
+fakeredis

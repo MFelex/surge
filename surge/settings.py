@@ -174,6 +174,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Global Config
 DISTRICT_COUNT = int(environ.get('DISTRICT_COUNT', 22))
+DEFAULT_DURATION = int(environ.get('DEFAULT_DURATION', 10))
 
 # ThirdParty
 NOMINATIM_URL = environ.get('NOMINATIM_URL', 'http://nominatim.openstreetmap.org/reverse')
