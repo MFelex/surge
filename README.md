@@ -1,4 +1,5 @@
 ![pylint Score](https://mperlet.github.io/pybadge/badges/9.svg)
+![Pytest Coverage](https://svgshare.com/i/d6Z.svg)
 # surge
 Determine the price coefficient based on the demand rate in Tehran`s districts
 
@@ -67,4 +68,10 @@ curl --location --request POST 'http://localhost:8080/threshold' \
     "request_count": 1000,
     "coefficient": 1.05
 }'
+```
+
+#### Surge
+##### The main service that return Tehran district ```coefficient``` based on ```latitude``` and ```longitude``` 
+```console
+curl --location --request GET 'http://localhost:8080/surge?lat=51.4096035&lon=35.7578398'
 ```
