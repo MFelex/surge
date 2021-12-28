@@ -1,7 +1,14 @@
 ![pylint Score](https://mperlet.github.io/pybadge/badges/9.svg)
 ![Pytest Coverage](https://svgshare.com/i/d6Z.svg)
 # surge
-Determine the price coefficient based on the demand rate in Tehran`s districts
+Determine the price coefficient based on the demand rate in Tehran districts
+This service is designed for an online ride-hailing application so that in order to balance supply and demand, the price will increase when the number of requests in a district exceeds the set limit.
+This service offers a price increase coefficient in REST API based on a configurable time-window and a threshold/coefficient table.
+it divided into the following categories:
+- [x] Register user to config time-window and treshold/coefficient
+- [x] Add time-window (duration)
+- [x] Add or delete threshold/coefficient
+- [x] Provide coefficient based on latitude and longitude
 
 ## Built With
 - [Python](https://www.python.org)
